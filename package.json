@@ -5,7 +5,10 @@
   "main": "sever.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": " concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -26,7 +29,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "concurrently": "^6.0.0",
+    "concurrently": "^6.2.0",
     "nodemon": "^2.0.7"
   }
 }
